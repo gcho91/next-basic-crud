@@ -3,7 +3,9 @@
 import PostClient from "./components/PostClient";
 
 async function getPosts() {
-  const res = await fetch("http://localhost:3000/api/posts", {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
+  const res = await fetch(`${baseUrl}/api/posts`, {
     cache: "no-store", // ensures data is always fresh
   });
   if (!res.ok) {
